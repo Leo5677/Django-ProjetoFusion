@@ -109,6 +109,21 @@ class Avaliacao(Base):
         return self.nome
 
 
+class Recurso(Base):
+    ICONE_CHOICE = (
+        ('lni-rocket', 'Rocket'),
+        ('lni-laptop-phone', 'Laptop-Phone'),
+        ('lni-cog', 'Cog'),
+        ('lni-leaf', 'Leaf'),
+        ('lni-layers', 'Layers'),
+    )
+    nome = models.CharField('Nome', max_length=100)
+    descricao = models.CharField('Descrição', max_length=100)
+    icone = models.CharField('Ícone', max_length=50, choices=ICONE_CHOICE)
 
+    class Meta:
+        verbose_name = 'Recurso'
+        verbose_name_plural = 'Recursos'
 
-
+    def __str__(self):
+        return self.nome
